@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Registration Page</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            background-color: grey;
+            font-family: serif;
+        }
+        h1{
+            margin-top: 0px;
+            margin-bottom: 20px;
+            color: rgba(0, 0, 255, 0.452);
+        }
+        span{
+            color: red;
+        }
+        .main{
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .tb1{
+            width: 100%;
+        }
+        .frm{
+            width: 380px;
+            height: 550px;
+            border: 1px solid grey;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.725);
+        }
+        .txt{
+            width: 100%;
+            padding: 15px;
+            border-radius:6px;
+            border: none;
+            margin-bottom: 15px;
+            font-size: 17px;
+        }
+        .txt:focus{
+            transform: scale(1.025);
+            outline: none;
+        }
+        .btn{
+            width: 100%;
+            padding: 15px;
+            background-color: rgba(0, 0, 255, 0.452);
+            border-radius: 38px;
+            border: none;
+            color: white;
+            font-size: 25px;
+            font-weight: 600;
+            font-family: serif;
+        }
+        .btn:hover, .btn:focus{
+            background-color: rgba(57, 57, 249, 0.452);
+            outline: none;
+        }
+        .new-user{
+            color: rgba(0, 0, 255, 0.584);
+        }
+    </style>
+</head>
+<body>
+    <div class ="main">
+        <form class="frm" name="f" onsubmit="event.preventDefault(); validate();">
+            <table class="tb1">
+                <tr>
+                    <th><h1>Create an Account</h1></th>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="Name" name="name" class="txt" id="name" oninput="validateName()">
+                        <span id="errname"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="email" placeholder="Email" name="email" class="txt" id="email" oninput="validateEmail()">
+                        <span id="errmail"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="password" placeholder="Password" name="password" class="txt" id="password" oninput="validatepswd()">
+                        <span id="errpswd"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="Contact Number" name="cnum" class="txt" id="cnum" oninput="validatecnum()">
+                        <span id="errcn"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="City&State" name="city" class="txt" id="city" oninput="validatecity()">
+                        <span id="errcity"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="btn">Sign Up</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><p>Already have an account? <a href="./LoginPage.html" class="new-user">Sign In</a></p></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <script>
+        function validate(){
+            let name = document.f.name.value;
+            let mail = document.f.email.value;
+            let pswd = document.f.password.value;
+            let contact = document.f.cnum.value;
+            let city = document.f.city.value;
+            let normalText = /^[a-zA-Z\s]+$/;
+            let normalNo = /^[0-9]+$/;
+            let normalEmail = /^[a-zA-z0-9]+@[a-zA-Z]+\.[a-zA-z]+$/;
+            isErr = false;
+            if (isErr == false) {
+                //validate the fields on submit event
+
+                // validation for name
+                if(name == "" || name.trim().length == 0){
+                    document.getElementById("errname").innerHTML = "Name is Required.";
+                    isErr = true;
+                    document.getElementById('name').style.marginBottom = '0px';
+                }
+                else if(normalText.test(name) == false){
+                    document.getElementById("errname").innerHTML = "*Please enter a valid Name.";
+                    isErr = true;
+                    document.getElementById('name').style.marginBottom = '0px';
+                }
+                else{
+                    isErr = false;
+                    document.getElementById('errname').innerHTML = "";
+                    document.getElementById('name').style.marginBottom = '15px';
+                }
+
+                // validation for email                
+                if(mail == "" || mail.trim().length == 0){
+                    document.getElementById("errmail").innerHTML = "* Email is Required.";
+                    isErr = true;
+                    document.getElementById('email').style.marginBottom = '0px';
+
+                }
+                else if(normalEmail.test(mail) == false){
+                    document.getElementById("errmail").innerHTML = "* Enter a valid Email ID.";
+                    isErr = true;
+                    document.getElementById('email').style.marginBottom = '0px';
+                }
+                else{
+                    isErr = false;
+                    document.getElementById('errmail').innerHTML = "";
+                    document.getElementById('email').style.marginBottom = '15px';
+                }
+
+                // validation for password
+                if(pswd == "" || pswd.trim().length == 0){
+                    document.getElementById("errpswd").innerHTML = "* Password is required.";
+                    isErr = true;
+                    document.getElementById('password').style.marginBottom = '0px';
+                }
+                else{
+                    isErr = false;
+                    document.getElementById('errpswd').innerHTML = "";
+                    document.getElementById('password').style.marginBottom = '15px';
+                }
+
+                // validation for contact number
+                if (contact == "" || contact.trim().length == 0) {
+                    isErr = true;
+                    document.getElementById('errcn').innerHTML = " * Contact Number is Required.";
+                    document.getElementById('cnum').style.marginBottom = '0px';
+                }
+                else if (normalNo.test(contact) == false) {
+                    isErr = true;
+                    document.getElementById('errcn').innerHTML = " * Enter Numbers Only.";
+                    document.getElementById('cnum').style.marginBottom = '0px';
+                }
+                else if (contact.trim().length != "10") {
+                    isErr = true;
+                    document.getElementById('errcn').innerHTML = " * Contact Number should be of 10 digit.";
+                    document.getElementById('cnum').style.marginBottom = '0px';
+                }
+                else{
+                    isErr = false;
+                    document.getElementById('errcn').innerHTML = "";
+                    document.getElementById('cnum').style.marginBottom = '15px';
+                }
+
+                // validation for city
+                if (city == "" || city.trim().length == 0) {
+                    document.getElementById('errcity').innerHTML = " * City is Required.";
+                    isErr = true;
+                    document.getElementById('city').style.marginBottom = '0px';
+                }
+                else if (normalText.test(city) == false) {
+                    isErr = true;
+                    document.getElementById('errcity').innerHTML = " * Enter Alphabets Only.";
+                    document.getElementById('city').style.marginBottom = '0px';
+                }
+                else{
+                    isErr = false;
+                    document.getElementById('errcity').innerHTML = "";
+                    document.getElementById('city').style.marginBottom = '15px';
+                }                
+                // return false;
+            }
+            if(isErr == false){
+                window.location.href =  "./LoginPage.html";
+                // return true;
+            }
+        }
+        
+        function validateName(){
+            let name = document.f.name.value;
+            let normalText = /^[a-zA-Z\s]+$/;
+
+            if (name == "" || name.trim().length == 0) {
+                document.getElementById('errname').innerHTML = " * Name is Required.";
+                isErr = true;
+            }
+            else if (normalText.test(name) == false) {
+                isErr = true;
+                document.getElementById('errname').innerHTML = " * Enter Alphabets Only.";
+            }
+            else{
+                document.getElementById('errname').innerHTML = "";
+                document.getElementById('name').style.marginBottom = '15px';
+            }
+        }
+        function validateEmail(){
+            let mail = document.f.email.value;
+            let normalEmail = /^[a-zA-z0-9]+@[a-zA-Z]+\.[a-zA-z]+$/;
+            if (mail == "" || mail.trim().length == 0) {
+                isErr = true;
+                document.getElementById('errmail').innerHTML = " * Email is Required.";
+            }
+            else if (normalEmail.test(mail) == false) {
+                isErr = true;
+                document.getElementById('errmail').innerHTML = " * Enter Valid Email Id.";
+            }
+            else{
+                document.getElementById('errmail').innerHTML = "";
+                document.getElementById('email').style.marginBottom = '15px';
+            }
+        }
+        function validatepswd(){
+            let pswd = document.f.password.value;
+            if (pswd == "" || pswd.trim().length == 0) {
+                isErr = true;
+                document.getElementById('errpswd').innerHTML = " * Password is Required."
+            }
+            else{
+                document.getElementById('errpswd').innerHTML = "";
+                document.getElementById('password').style.marginBottom = '15px';
+            }
+        }
+        function validatecnum(){
+            let contact = document.f.cnum.value;
+            let normalNo = /^[0-9]+$/;
+
+            if (contact == "" || contact.trim().length == 0) {
+                isErr = true;
+                document.getElementById('errcn').innerHTML = " * Contact Number is Required.";
+            }
+            else if (normalNo.test(contact) == false) {
+                isErr = true;
+                document.getElementById('errcn').innerHTML = " * Enter Numbers Only.";
+            }
+            else if (contact.trim().length != "10") {
+                isErr = true;
+                document.getElementById('errcn').innerHTML = " * Contact Number should be of 10 digit.";
+            }
+            else{
+                document.getElementById('errcn').innerHTML = "";
+                document.getElementById('cnum').style.marginBottom = '15px';
+            }
+        }
+        function validatecity(){
+            let city = document.f.city.value;
+            let normalText = /^[a-zA-Z\s,]+$/;
+
+            if (city == "" || city.trim().length == 0) {
+                document.getElementById('errcity').innerHTML = " * City is Required.";
+                isErr = true;
+            }
+            else if (normalText.test(city) == false) {
+                isErr = true;
+                document.getElementById('errcity').innerHTML = " * Enter Alphabets Only.";
+            }
+            else{
+                document.getElementById('errcity').innerHTML = "";
+                document.getElementById('city').style.marginBottom = '15px';
+            }
+        }
+    </script>
+</body>
+</html>
+

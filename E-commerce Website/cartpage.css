@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+}
+.empty{
+    position: relative;
+    margin-top: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.empty > img{
+    height: 300px;
+}
+.empty > h3{
+    color: rgba(0, 0, 0, 0.584);
+}
+.empty > .additem{
+    height: 50px;
+    width: 200px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    font-size: 1.3rem;
+    border-radius: 7px;
+    border: 2px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.empty > .additem:hover{
+    color: black;
+    background-color: white;
+}
+#left-side{
+    position: absolute;
+    top: 50%;
+    transform: translate(10%,-50%);
+    background-color: rgba(211, 211, 211, 0.297);
+    border-radius: 20px;
+    height: 70%;
+    width: 40%;
+    overflow-y: auto;
+    padding: 30px;
+}
+.product{
+    position: relative;
+    height: 40%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+    gap: 20px;
+    list-style: none;
+    padding: 5px;
+    margin-bottom: 40px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 8px rgba(128, 128, 128, 0.171), -2px -2px 8px rgba(128, 128, 128, 0.176);
+}
+.price{
+    font-weight: 700;
+}
+.delete{   
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: 300;
+    position: absolute;
+    top: 0px;
+    right: 8px;
+    color: rgba(215, 5, 5, 0.779);
+    background-color: transparent;
+    border: none;
+}
+img{
+    border-radius: 20px;
+}
+#right-side{
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translate(-10%,-50%);
+    /* background-color: rgba(211, 211, 211, 0.297); */
+    height: 70%;
+    width: 30%;
+    /* overflow-y: auto; */
+    padding-top: 130px;
+    border-radius: 20px;
+}
+.checkout{
+    height: max-content;
+    width: 100%;
+    padding: 20px;
+    background-color: white;
+    line-height: 70px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 8px rgba(128, 128, 128, 0.171), -2px -2px 8px rgba(128, 128, 128, 0.176);
+}
+.totalAmount,.totalCount{
+    display: flex;
+    justify-content: space-between;
+}
+#right-side > button {
+    height: 60px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-size: 1.3rem;
+    border-radius: 35px;
+    border: 2px solid;
+    margin-top: 50px;
+  }
+  
+  #right-side > button:hover {
+    color: black;
+    background-color: white;
+  }

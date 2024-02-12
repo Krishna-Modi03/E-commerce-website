@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoginPage</title>
+    <link rel="stylesheet" href="./LoginPage.css">
+</head>
+<body>
+    <div class="login-container">
+        <form id="loginForm" name="f" onsubmit="event.preventDefault(); validate();">
+            <table class="tb1">
+                <tr>
+                    <th><h1>LOGIN</h1></th>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="email" placeholder="Email" name="email" class="txt" id="email" oninput="validateEmail()">
+                        <span id="errmail"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="password" placeholder="Password" name="password" class="txt" id="password" oninput="validatepswd()">
+                        <span id="errpswd"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="fpass">
+                        <a href="#" class="forgot-password">Forgot Password?</a><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="btn">LOGIN</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Don't have an account? <a href="./RegistrationForm.html" class="new-user">Sign Up</a></p>
+                    </td>
+                </tr>
+            </table>
+            
+
+
+            
+        </form>
+    </div>
+    <script src="./LoginPage.js"></script>
+</body>
+</html>
