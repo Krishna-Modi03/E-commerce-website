@@ -2,6 +2,27 @@
     let leftaside = document.getElementById('left-aside');
     let rightaside = document.getElementById('right-aside');
     const cartdata=[];
+
+    // Add a function to toggle the display of the menu items
+    document.querySelector('.menu-icon').addEventListener('click', function() {
+        const ul = document.querySelector('ul');
+        const li = document.querySelectorAll('li');
+        ul.style.display = ul.style.display === 'none' ? 'block' : 'none';
+        // ul.style.marginTop = '60px';
+        ul.style.height = "300px";
+        ul.style.backgroundColor = "#80808080";
+        leftaside.style.zIndex = leftaside.style.zIndex ===  '1' ? '-1' : '1';
+        li[1].style.paddingTop = '0px';
+        li[1].style.paddingLeft = '10px';
+        li[1].style.display = li[1].style.display === 'none' ? 'block' : 'none';
+        for (let i = 2; i < li.length; i++) {
+            li[i].style.display = li[i].style.display === 'none' ? 'block' : 'none';
+            li[i].style.paddingTop = '15px';
+            li[i].style.paddingLeft = '10px';
+        }
+        console.log(li.length);
+        
+    });
 document.addEventListener('DOMContentLoaded', () => {    
     let fetchthedata = async function(){
         let result = await fetch('https://fakestoreapi.com/products');
@@ -54,5 +75,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 export { cartdata };
-
-
