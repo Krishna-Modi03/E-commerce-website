@@ -8,11 +8,13 @@
         const ul = document.querySelector('ul');
         const li = document.querySelectorAll('li');
         ul.style.display = ul.style.display === 'none' ? 'block' : 'none';
-        // ul.style.marginTop = '60px';
+        ul.style.marginTop = '32px';
         ul.style.height = "300px";
+        ul.style.width = "200px";
         ul.style.backgroundColor = "#80808080";
+        ul.style.borderBottomRightRadius = "20px";
         leftaside.style.zIndex = leftaside.style.zIndex ===  '1' ? '-1' : '1';
-        li[1].style.paddingTop = '0px';
+        li[1].style.paddingTop = '10px';
         li[1].style.paddingLeft = '10px';
         li[1].style.display = li[1].style.display === 'none' ? 'block' : 'none';
         for (let i = 2; i < li.length; i++) {
@@ -20,16 +22,31 @@
             li[i].style.paddingTop = '15px';
             li[i].style.paddingLeft = '10px';
         }
-        console.log(li.length);
-        
     });
-document.addEventListener('DOMContentLoaded', () => {    
-    let fetchthedata = async function(){
-        let result = await fetch('https://fakestoreapi.com/products');
-        let data = await result.json();
-        displaydata(data);
-    }
-    fetchthedata();
+
+    document.getElementById('profile-btn').addEventListener('click',()=>{
+        let profileblock = document.getElementById('profile-block');
+        if(profileblock.style.display ==='none'){
+            profileblock.style.display = 'block';
+            profileblock.style.position = "relative";
+            profileblock.style.top="0px";
+            profileblock.style.left="54px";
+            profileblock.style.height = "200px";
+            profileblock.style.borderRadius = "15px";
+            profileblock.style.backgroundColor = "#d3d3d3cb"
+            profileblock.style.zIndex=999;
+        }else{
+            profileblock.style.display = 'none';
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {    
+        let fetchthedata = async function(){
+            let result = await fetch('https://fakestoreapi.com/products');
+            let data = await result.json();
+            displaydata(data);
+        }
+        fetchthedata();
 
     function displaydata(fatcheddata) {
         fatcheddata.forEach(element => {
@@ -75,3 +92,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 export { cartdata };
+
+
