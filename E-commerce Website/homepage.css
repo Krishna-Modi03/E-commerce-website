@@ -28,8 +28,8 @@ li{
     align-items: center;
     color: #3b3737;
     list-style: none;
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 500;
     cursor: pointer;
 }
 li a{
@@ -140,7 +140,7 @@ li:hover{
     display: none;
     position: absolute;
     right: 0;
-    top: 72px;
+    top: 10%;
     background-color: rgba(211, 211, 211, 0.392);
     z-index: 1;
 }
@@ -181,7 +181,6 @@ li:hover{
         cursor: pointer;
         color: #3b3737;
     }
-    
     nav{
         height: 9vh;
         overflow: visible;
@@ -192,8 +191,26 @@ li:hover{
     li{
         display: none;
     }
-    .profile-block {
+    .profile-block{
         display: none;
+        background-color: rgba(211, 211, 211, 0.392);
+        z-index: 1;
+    }
+    .profile-block > .wlcm{
+        padding-left: 10px;
+    }
+    .profile-btn:hover .profile-block{
+        display: block;
+        width: 200px;
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .profile-block>hr{
+        height: 3px;
+        background-color: #3b3737;
     }
     .left-aside{
         width: 100%;
@@ -206,5 +223,4 @@ li:hover{
         display: none;
         padding: 0px;
     }
-
 }
